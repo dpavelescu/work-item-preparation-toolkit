@@ -57,7 +57,7 @@ Each item is **Met / Deferred / Open** — the consistent measure of *what to cl
 Each lens is read-only, business-level, and defers technical detail. Pass each only its slice; detect lenses return findings + suggested questions, the gate lens returns contradictions.
 
 ## Guards
-Technical-work (+ enabler exception) · technical-deferral · scope-size (split if >~a few days) · boundary (state in/out) · source (missing/unlinked/unretrievable load-bearing source → blocking) · conflict (raise self-contradiction / cross-source) · consistency (ledger per answer; whole-spec pass at the gate; internal consistency is a readiness condition) · seed (author: no capability/intent → Not ready, route upstream) · calibration (capture every load-bearing concern, nothing more — no over/under-specification). See the playbook.
+Technical-work (+ enabler exception) · technical-deferral · scope-size (>~a few days → no artifact; propose split; each slice re-runs) · boundary (state in/out) · source (missing/unlinked/unretrievable load-bearing source → blocking) · conflict (raise self-contradiction / cross-source) · consistency (ledger per answer; whole-spec pass at the gate; internal consistency is a readiness condition) · seed (author: no capability/intent → Not ready, route upstream) · calibration (capture every load-bearing concern, nothing more — no over/under-specification). See the playbook.
 
 ## Output (two roles; never copies the source)
 - **author** → the **user story** (it *is* the work item; a draft, pending approval). **Complete & standalone** — every applicable section substantive, meeting user-story rigor.
@@ -86,5 +86,6 @@ As a <persona>, I want <capability>, so that <outcome>.
 
 ## Open / blocking   (only if Not ready)
 - Clarification agenda (most critical first): 1) <question> — why it blocks · who decides
+- Proposed split (if oversized): 1) <slice — independently valuable> … — pick slice(s); each re-enters prepare-work-item as its own item
 ```
 Tag each functional/NFR/AC item with its origin (requirement, story §, external artifact (UI/UX spec · ADR · API/data contract · policy), human answer, or *assumed — confirm*).

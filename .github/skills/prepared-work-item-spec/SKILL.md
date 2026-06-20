@@ -47,6 +47,7 @@ As a <persona>, I want <capability>, so that <outcome>.
 
 ## Open / blocking   (only when Not ready — no artifact is produced)
 - Clarification agenda (most critical first): 1) <question> — why it blocks · who decides
+- Proposed split (if oversized): 1) <slice — independently valuable> … — pick slice(s); each re-enters prepare-work-item as its own item
 ```
 
 **Rules:** the output is a **draft pending human approval**. Tag each functional/NFR/AC item with

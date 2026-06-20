@@ -74,7 +74,7 @@ Readiness is **measured**, not guessed. Each item is **Met / Deferred / Open** �
 - **Technical‑work guard.** Detect signals the item is technical, not user‑facing (named tech/infra/refactor; framed as a task not an outcome; no identifiable user/value). If detected **and not explicitly an enabler** → surface it (*"This reads as technical — state the end‑user value, or mark it an enabler."*).
 - **Enabler exception.** If the item is **explicitly** an enabler, switch to enabler mode: relax the user‑value requirement; instead clarify the enabler's *purpose, the capabilities/consumers it unblocks, and its acceptance*.
 - **Technical‑deferral guard.** In user‑facing mode, **any technical clarification is deferred to the next phase** (recorded, not answered).
-- **Scope‑size guard.** If the item is larger than ~a few days, **don't produce a final artifact** — propose candidate slices, each independently valuable.
+- **Scope‑size guard.** If the item is larger than ~a few days, **don't produce a final artifact** — propose candidate slices, each independently valuable. Each chosen slice then **re‑enters `prepare-work-item` as its own right‑sized item**.
 - **Boundary guard.** When scope is blurry, clarify and **state in‑scope and the consequent out‑of‑scope explicitly**.
 - **Source guard.** If a business‑critical point needs a source that's missing, unlinked, or **unretrievable**, make it a clarification item (a load‑bearing source that's missing or can't be retrieved is blocking).
 - **Conflict guard.** If the input contradicts itself or a known source, raise it — don't resolve it silently.
@@ -126,6 +126,7 @@ As a <persona>, I want <capability>, so that <outcome>.
 
 ## Open / blocking  (only if Not ready)
 - Clarification agenda (most critical first): 1) <question> — why it blocks · who decides
+- Proposed split (if oversized): 1) <slice — independently valuable> … — pick slice(s); each re-enters prepare-work-item as its own item
 ```
 
 **Traceability:** each functional/NFR/AC item is tagged with its origin — a requirement, a story section, an **external artifact** (UI/UX spec, ADR, API/data contract, policy), or the **human answer** that resolved it (or *assumed — confirm*) — so downstream knows what's authoritative vs clarified vs assumed.
@@ -135,7 +136,7 @@ As a <persona>, I want <capability>, so that <outcome>.
 ## Output states
 - **Captured** — checklist satisfied; downstream may proceed.
 - **Captured with deferrals** — produced with explicit *Deferred* / *assumed — confirm* items that don't block.
-- **Not ready** — no artifact; a resumable, criticality‑ordered clarification agenda (answer + re‑run, or answer interactively).
+- **Not ready** — no artifact; a resumable, criticality‑ordered clarification agenda — or, if oversized, a **proposed split** (answer/choose + re‑run, or answer interactively).
 
 ## Contract semantics (downstream)
 - Planning/implementation **build to the artifact**: honor scope (esp. *out of scope*), satisfy the acceptance criteria, meet the NFR expectations, and **resolve the *Deferred* items in their phase**.
