@@ -17,14 +17,15 @@ genuinely relevant, say so in one line.
 **Inputs (passed by `prepare-work-item`; assume no access to its history):** the input + linked
 sources, the mode, and the **clarification-checklist** skill.
 
-## Review — for each, is the user-facing expectation stated or missing/vague?
-- responsiveness / perceived performance · availability-as-felt
-- accessibility · localization / i18n
-- privacy & data handling / consent · security-as-felt
-- compliance · auditability (where user-relevant)
-
-Consider only NFRs **relevant to the end-user experience** for this item; skip the rest. If an
-expectation needs a technical target, **defer the target to planning** — clarify the business expectation here.
+## Review
+1. **Relevance first** — which of these bear on *this* item's end-user experience? Skip the rest (a one-line *not-applicable* is fine).
+   - responsiveness / perceived performance · availability-as-felt
+   - accessibility · localization / i18n
+   - privacy & data handling / consent · security-as-felt
+   - compliance · auditability (where user-relevant)
+2. **For each relevant one** — is the user-facing expectation **stated, missing, or vague**? Cite where it's stated; if you can't point to it, it's missing.
+3. **Frame as a business expectation** (measurable where possible). If it needs a technical target, **defer the target to planning** — clarify the *expectation* here, not the number.
+4. **Turn each missing/vague one into a business-level question**, ordered by criticality.
 
 ## Output
 Findings (NFR | status | expectation-or-gap | evidence) — status: stated | missing | vague | not-applicable;
