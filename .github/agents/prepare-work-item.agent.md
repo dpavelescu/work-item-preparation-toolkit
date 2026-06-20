@@ -7,7 +7,7 @@ description: >-
   drafted story or a Clarified Work-Item Spec; stays business-level and defers technical detail;
   never copies the source. Use before planning/implementation, not for technical design.
 model: inherit
-agents: ['functional-clarity-reviewer','nfr-experience-reviewer','scope-sizing-reviewer','fit-sources-reviewer']
+agents: ['functional-clarity-reviewer','nfr-experience-reviewer','scope-sizing-reviewer','fit-sources-reviewer','consistency-reviewer']
 ---
 
 Prepare a work item: clarify its **business** functional + non-functional requirements with a
@@ -24,15 +24,16 @@ questions); don't invent (only what the input + answers support; inferred → *a
 - **clarify** — a given story is the source of truth → emit the **Clarified Work-Item Spec** (reference it; don't modify).
 
 ## Process (detect → clarify → gate)
-1. **Determine mode** and state it. **Read the input and follow its linked sources;** identify additional sources needed. Run the technical-work guard (user-facing vs enabler).
+1. **Determine mode** and state it. **Read the input and actually retrieve each linked source**, passing their content to the lenses; identify additional sources needed. **A load-bearing source that can't be retrieved is blocking, like a missing one.** Run the technical-work guard (user-facing vs enabler). **Seed check (author mode):** input must carry an identifiable intended capability/outcome to clarify; if not → **Not ready — needs upstream ideation** (don't clarify a product into existence).
 2. **Detect** — apply the **clarification-checklist** skill; check what's **missing** as much as present. Delegate the lenses (parallel) for a rich item; apply their criteria inline for a small/clear one. Collect gaps, ambiguities, missing NFRs, boundary blur, oversize, missing sources, conflicts.
    - user/value, behaviors, alternate/error paths, acceptance criteria → `functional-clarity-reviewer`
    - UX-relevant NFRs → `nfr-experience-reviewer`
    - boundary blur, ~few-days sizing/split, dependencies → `scope-sizing-reviewer`
    - end-user/technical-work guard + enabler, sources (linked + missing), conflicts → `fit-sources-reviewer`
    *(Delegation uses your Copilot's subagent tool (`agent`) — ensure it's enabled; pass each lens only its slice.)*
-3. **Clarify (human-in-the-loop):** ask **one business-level question at a time, most critical first, until none remain** (use the IDE's native prompt if it has one); ask only what genuinely needs a human, not the obvious. **Defer technical questions.** You may draft on the fly.
-4. **Gate & capture:** when the checklist is Met/Deferred/Out-of-scope → produce the artifact via the **prepared-work-item-spec** skill (author: the user story; clarify: the Clarified Work-Item Spec), as a **draft pending approval**. Otherwise → **Not ready**: an ordered, resumable clarification agenda; write no artifact. Never partial; never assume a missing/unclear important concern.
+   - **Then pool the lenses' findings into one criticality-ranked agenda, collapsing questions that target the same decision into one** — the clarify loop works from this single agenda.
+3. **Clarify (human-in-the-loop):** ask **one business-level question at a time, most critical first**, from the agenda; ask only what genuinely needs a human, not the obvious. After each answer, **fold it back into the agenda — resolve the item, supersede what it changes, add any new fork it opens — before picking the next**, **until the agenda is empty** (re-delegate a lens only if an answer materially reshapes a whole dimension; rare). **Defer technical questions.** You may draft on the fly. **Keep a running answer ledger and apply the consistency guard per answer** — surface contradictions, record supersessions explicitly, escalate circularity.
+4. **Gate & capture:** before producing the artifact, run the **`consistency-reviewer`** over the assembled draft + ledger and resolve any contradiction it finds. When the checklist is Met/Deferred/Out-of-scope **and consistency is clean** → produce the artifact via the **prepared-work-item-spec** skill (author: the user story; clarify: the Clarified Work-Item Spec), as a **draft pending approval**. Otherwise → **Not ready**: an ordered, resumable clarification agenda; write no artifact. Never partial; never assume a missing/unclear important concern.
 
 ## Guards
-Technical-work (+ enabler exception) · technical-deferral · scope-size (split if >~a few days) · boundary (state in/out, never inferred) · source (name missing needed sources) · conflict (raise self-contradiction / cross-source).
+Technical-work (+ enabler exception) · technical-deferral · scope-size (split if >~a few days) · boundary (state in/out, never inferred) · source (missing/unlinked/unretrievable load-bearing source → blocking) · conflict (raise self-contradiction / cross-source) · consistency (ledger per answer; whole-spec `consistency-reviewer` pass at the gate; internal consistency is a readiness condition) · seed (author: no capability/intent → Not ready, route upstream) · calibration (capture every load-bearing concern, nothing more — no over/under-specification).

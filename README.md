@@ -37,6 +37,7 @@ It keeps the work **end‑user oriented**, sized to **~a few days**, with **expl
 - **One blocking question at a time, most critical first.** Ask only what genuinely needs a human, not the obvious; technical questions are deferred, not asked.
 - **Resolve the important questions before producing the artifact.** The output is complete and built from the answers — never a partial artifact with a pile of open points.
 - **Don't invent.** Only what the input + answers support; inferred items are marked *assumed — confirm*.
+- **Stay consistent.** A later clarification can't silently overwrite or contradict an earlier one, and the assembled draft is checked for internal contradictions before it's captured.
 - **Source of truth.** In *clarify* mode the story stays authoritative (referenced, never copied); in *author* mode the drafted story is a **draft pending your approval**.
 - **Humans approve.** This makes what reaches planning safer; it doesn't replace review.
 
@@ -48,7 +49,7 @@ It keeps the work **end‑user oriented**, sized to **~a few days**, with **expl
 input (requirements OR a story)
    └─ prepare-work-item
         detect gaps  →  clarify with you (one question at a time)  →  capture the artifact
-                                                          (gated on the clarification checklist)
+                                            (gated on the clarification checklist + a consistency pass)
    ▼
 planning / implementation  — build to the artifact; resolve the deferred technical items here
 ```
@@ -66,11 +67,12 @@ Work-Item-Preparation-Playbook.md          ← the full reference (tool-neutral)
 .claude/                                    ← Claude Code build
   skills/   prepare-work-item               (orchestrator = skill)
   agents/   functional-clarity-reviewer | nfr-experience-reviewer
-            scope-sizing-reviewer | fit-sources-reviewer   (lenses = sub-agents)
+            scope-sizing-reviewer | fit-sources-reviewer   (4 detect lenses)
+            consistency-reviewer            (gate lens)     (lenses = sub-agents)
 
 .github/                                    ← GitHub Copilot build
   agents/   prepare-work-item               (orchestrator = custom agent; delegates via agents:)
-            + the 4 lenses                  (lenses = custom agents)
+            + the 5 lenses                  (4 detect + 1 gate; lenses = custom agents)
   skills/   clarification-checklist | prepared-work-item-spec   (shared, auto-loaded)
 ```
 

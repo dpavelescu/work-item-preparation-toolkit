@@ -24,6 +24,7 @@ Each item is **Met / Deferred / Open**; it scopes the clarification and signals 
 10. **No unresolved blocking ambiguity** — every business-critical question answered, deferred, or out-of-scope.
 11. **Work type** — user-facing (default) or explicitly an enabler.
 
-**Gate:** capture the artifact only when every item is Met or explicitly Deferred/Out-of-scope;
-otherwise the run is Not ready (a resumable clarification agenda). A missing **load-bearing**
-item is blocking; a minor one is a deferred TBD. Stay business-level — defer technical detail.
+**Gate:** capture the artifact only when every item is Met or explicitly Deferred/Out-of-scope
+**and the assembled draft is internally consistent** (no contradiction across requirements, ACs,
+NFRs, or scope); otherwise the run is Not ready (a resumable clarification agenda). A missing
+**load-bearing** item is blocking; a minor one is a deferred TBD. Stay business-level — defer technical detail.

@@ -13,6 +13,15 @@ work item (a draft, pending approval); in **clarify** mode it **references** the
 and is the companion contract (the story stays the source of truth, untouched). It **never
 copies** the source — it captures the *disambiguated understanding* and points to sources.
 
+**Completeness differs by mode.** *author* → **complete and standalone**, every applicable section
+substantive (N/A where one genuinely doesn't apply, not padded), meeting user-story rigor (it's
+stored / used as-is downstream). *clarify* → **only what it resolves
+or changes**; reference the story for what's already clear; **omit or mark N/A rather than pad**.
+**Calibration (both):** capture every load-bearing clarification and point of view and **nothing
+more** — no over-specification (padding/verbosity/restating the source) and no under-specification
+(dropping a concern). The checklist is fully assessed in both modes; artifact completeness ≠
+checklist completeness.
+
 ```markdown
 # <work-item title>
 Mode: author | clarify   Status: Captured | Captured with deferrals | Not ready
@@ -22,7 +31,7 @@ Work type: User-facing | Enabler   Checklist: <n>/11   Source of truth: <this (d
 As a <persona>, I want <capability>, so that <outcome>.
 
 ## Reference sources   (read these — pointers, not copied)
-- <linked source> — why relevant     · Needed but missing: <source> — what it resolves
+- <linked source (UI/UX spec, ADR, API/data contract, policy …)> — why relevant     · Needed but missing: <source> — what it resolves
 
 ## User & value
 ## Functional requirements   (Given/When/Then; + alternate/error paths)   · origin tag
@@ -41,6 +50,9 @@ As a <persona>, I want <capability>, so that <outcome>.
 ```
 
 **Rules:** the output is a **draft pending human approval**. Tag each functional/NFR/AC item with
-its **origin** — a requirement, a story section, or the **human answer** that resolved it (or
-*assumed — confirm*) — so downstream knows authoritative vs clarified vs assumed. Keep it thin:
-state each rule once; defer technical detail; don't invent.
+its **origin** — a requirement, a story section, an **external artifact** (UI/UX spec, ADR,
+API/data contract, policy), or the **human answer** that resolved it (or *assumed — confirm*) — so
+downstream knows authoritative vs clarified vs assumed. **Link, don't duplicate:** when an
+authoritative artifact already details something, reference it under *Reference sources* and tag the
+item's origin to it instead of copying its content. Keep it thin: state each rule once; defer
+technical detail; don't invent.
