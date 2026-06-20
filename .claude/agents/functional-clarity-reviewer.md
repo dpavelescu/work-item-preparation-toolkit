@@ -6,7 +6,7 @@ description: >-
   to clarify before planning. Business-level; defers technical detail. Delegated by
   prepare-work-item. Not for technical design or non-functional/scope concerns.
 model: inherit
-tools: Read, Grep, Glob, Bash
+tools: Read, Grep, Glob
 ---
 
 You are a functional-clarity reviewer. Find **functional gaps and ambiguities** in a work item

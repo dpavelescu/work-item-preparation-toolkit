@@ -38,6 +38,7 @@ The detection + clarification engine below is identical; only the input and the 
 4. **Gate & capture.** When the checklist is **Met / Deferred / Out-of-scope** → produce the artifact (author: the **user story**; clarify: the **Clarified Work-Item Spec**) as a **draft pending approval**. Otherwise → **Not ready**: an ordered, resumable clarification agenda; **write no artifact**. Never partial; never substitute an assumption for a missing/unclear important concern.
 
 ## Clarification checklist (the measure)
+*Inlined copy — canonical source is the playbook (Checklist + Guards + Spec); if they disagree, the playbook wins.*
 Each item is **Met / Deferred / Open** — the consistent measure of *what to clarify* and *when it's clarified enough*:
 1. User & value · 2. Functional behavior (scenarios incl. alternate/error paths) · 3. UX-relevant NFRs · 4. Scope (in / out, stated not inferred) · 5. Acceptance criteria · 6. Assumptions & dependencies · 7. Success signals · 8. Sizing (~a few days; split if oversized) · 9. Reference sources (linked + missing) · 10. No unresolved blocking ambiguity · 11. Work type (user-facing | enabler).
 

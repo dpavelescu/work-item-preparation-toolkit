@@ -6,6 +6,8 @@ description: >-
   output in prepare-work-item (author or clarify mode).
 ---
 
+*Derived copy — canonical source is `Work-Item-Preparation-Playbook.md`; if they disagree, the playbook wins.*
+
 Assess the work item against these — checking what's **missing** as much as what's present.
 Each item is **Met / Deferred / Open**; it scopes the clarification and signals when it's
 *clarified enough* to capture. (Means, not the deliverable.)

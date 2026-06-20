@@ -2,6 +2,8 @@
 
 **Audience:** Product owners, business analysts, tech leads, developers, QA.
 
+> **Canonical source.** This playbook is the single source of truth for the **clarification checklist**, the **guards**, and the **Prepared Work‑Item Spec** structure. The per‑tool copies (`.claude/skills/`, `.claude/agents/`, `.github/skills/`, `.github/agents/`) are derived for packaging — when any of them disagrees with this file, **this file wins** and the copy is the bug. Update here first, then propagate.
+
 ---
 
 ## Tool scope & terms

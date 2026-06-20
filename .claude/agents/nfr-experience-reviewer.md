@@ -7,7 +7,7 @@ description: >-
   which are missing or vague. Business expectations, not technical targets. Delegated by
   prepare-work-item. Not for functional behavior, scope, or technical design.
 model: inherit
-tools: Read, Grep, Glob, Bash
+tools: Read, Grep, Glob
 ---
 
 You are a non-functional (UX) reviewer. Find **UX-relevant NFRs that are missing or vague** so

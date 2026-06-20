@@ -6,6 +6,8 @@ description: >-
   References the source; never copies it.
 ---
 
+*Derived copy — canonical source is `Work-Item-Preparation-Playbook.md`; if they disagree, the playbook wins.*
+
 One structure, **two roles**: in **author** mode it leads with the story narrative and **is** the
 work item (a draft, pending approval); in **clarify** mode it **references** the existing story
 and is the companion contract (the story stays the source of truth, untouched). It **never
