@@ -15,8 +15,8 @@ the input + linked sources, the mode, and the **clarification-checklist** skill.
 
 ## Review
 1. **End-user fit / technical-work guard** — identifiable user and value, or technical (named tech/infra/refactor, framed as a task)? If technical and not an explicit enabler → flag (*"state the end-user value, or mark it an enabler"*). If an explicit enabler → enabler mode (clarify purpose, consumers unblocked, acceptance), relax user-value.
-2. **Sources** — are linked sources enough? Name any **needed source** not linked (missing **load-bearing** = blocking; nice-to-have = recorded).
-3. **Conflicts** — input contradicts itself or a known source? Raise it; don't resolve silently.
+2. **Sources** — are linked sources enough? Name any **needed source** not linked (missing **critical** = blocking; nice-to-have = recorded).
+3. **Conflicts** — any contradiction within the input or a source, **between two sources**, or input vs a source? Raise it; don't resolve silently.
 
 ## Output
 Findings (area | status | finding | evidence) — status: user-facing | technical-unflagged | enabler | sources-ok | missing-source | conflict; the reading set (linked + needed); **suggested business-level questions, ordered by criticality**; one recommendation.

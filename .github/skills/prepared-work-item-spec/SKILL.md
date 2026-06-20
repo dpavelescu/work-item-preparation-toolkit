@@ -17,7 +17,7 @@ copies** the source — it captures the *disambiguated understanding* and points
 substantive (N/A where one genuinely doesn't apply, not padded), meeting user-story rigor (it's
 stored / used as-is downstream). *clarify* → **only what it resolves
 or changes**; reference the story for what's already clear; **omit or mark N/A rather than pad**.
-**Calibration (both):** capture every load-bearing clarification and point of view and **nothing
+**Calibration (both):** capture every critical clarification and point of view and **nothing
 more** — no over-specification (padding/verbosity/restating the source) and no under-specification
 (dropping a concern). The checklist is fully assessed in both modes; artifact completeness ≠
 checklist completeness.
@@ -42,7 +42,7 @@ As a <persona>, I want <capability>, so that <outcome>.
 ## Acceptance criteria   (testable, business-level)
 ## Assumptions & dependencies   (assumed — confirm; depends on …)
 ## Success signals
-## Deferred to next phase   (technical clarifications, design, anything punted)
+## Deferred to next phase   (technical clarifications, design, anything punted; ⚠ value-impact note on any critical deferral)
 ## Sizing   (fits ~a few days? if not → proposed split)
 
 ## Open / blocking   (only when Not ready — no artifact is produced)

@@ -76,21 +76,22 @@ Readiness is **measured**, not guessed. Each item is **Met / Deferred / Open** �
 - **Technical‑deferral guard.** In user‑facing mode, **any technical clarification is deferred to the next phase** (recorded, not answered).
 - **Scope‑size guard.** If the item is larger than ~a few days, **don't produce a final artifact** — propose candidate slices, each independently valuable. Each chosen slice then **re‑enters `prepare-work-item` as its own right‑sized item**.
 - **Boundary guard.** When scope is blurry, clarify and **state in‑scope and the consequent out‑of‑scope explicitly**.
-- **Source guard.** If a business‑critical point needs a source that's missing, unlinked, or **unretrievable**, make it a clarification item (a load‑bearing source that's missing or can't be retrieved is blocking).
-- **Conflict guard.** If the input contradicts itself or a known source, raise it — don't resolve it silently.
+- **Source guard.** If a business‑critical point needs a source that's missing, unlinked, or **unretrievable**, make it a clarification item (a critical source that's missing or can't be retrieved is blocking).
+- **Conflict guard.** Raise — never resolve silently — **any** contradiction: **within** the input or a source (self-contradiction), **between two sources**, between the **input and a source**, or between a **human answer and a source**. (Answer-vs-answer is the consistency guard.)
 - **Seed guard (author mode).** Author *elicits* direction that exists; it never *invents* it. If the input carries no identifiable capability/intent to clarify → **Not ready**, route upstream to ideation — don't clarify a product into existence.
-- **Calibration guard (both modes).** Aim for the right level of specification: capture every load‑bearing clarification and point of view, and **nothing more**. Over‑specification (padding, verbosity, restating the obvious or the source) buries the signal; under‑specification drops a concern that downstream then has to assume. Neither is acceptable.
-- **Consistency guard.** Clarifications accumulate; keep them coherent. *In the loop:* maintain a running **answer ledger** and check each new answer against it — if it **contradicts** a prior one, surface it (*"this conflicts with your earlier answer that X — which holds?"*) instead of silently absorbing it; if it **legitimately revises** a prior decision, record the **supersession explicitly** (the old answer is marked superseded, never silently dropped); if the same decision keeps flip‑flopping, **stop and escalate** (circularity). *At the gate:* run a whole‑spec consistency pass (the `consistency-reviewer` lens) over the assembled draft — no two requirements, ACs, NFRs, or scope statements may contradict. **Internal consistency is a readiness condition**, not just a writing nicety.
+- **Calibration guard (both modes).** Aim for the right level of specification: capture every critical clarification and point of view, and **nothing more**. Over‑specification (padding, verbosity, restating the obvious or the source) buries the signal; under‑specification drops a concern that downstream then has to assume. Neither is acceptable.
+- **Consistency guard.** Clarifications accumulate; keep them coherent. *In the loop:* maintain a running **answer ledger** and check each new answer against it **and against the sources** — if it **contradicts** a prior answer or a source, surface it (*"this conflicts with your earlier answer / source X — which holds?"*) instead of silently absorbing it; if it **legitimately revises** a prior decision, record the **supersession explicitly** (the old answer is marked superseded, never silently dropped); if the same decision keeps flip‑flopping, **stop and escalate** (circularity). *At the gate:* run a whole‑spec consistency pass (the `consistency-reviewer` lens) over the assembled draft — no two requirements, ACs, NFRs, or scope statements may contradict. **Internal consistency is a readiness condition**, not just a writing nicety.
+- **Deferral guard.** A clarification is **critical** if leaving it unresolved would change the user value, scope, a behavior, or an acceptance criterion — otherwise it's **minor**. The human may defer any clarification: a *minor* one → record as a TBD / *assumed — confirm* and capture (status *Captured with deferrals*); a *critical* one may be deferred **only by an explicit human decision**, captured as an explicit assumption or a flagged *Deferred* item — never silently. If deferring it would **reduce the story's value**, attach a **non‑blocking ⚠ value‑impact note** so the human defers with eyes open, and reflect it in the status. No safe default and no decision → **Not ready**.
 
 ---
 
 ## The process (detect → clarify → gate)
 
-1. **Determine mode** (author vs clarify) and state it. **Read the input and actually retrieve and read each linked source** (the orchestrator fetches; it passes the *content*, not just links, to the lenses); identify additional sources needed. **If a load‑bearing linked source can't be retrieved (no access, broken, paywalled), treat it like a missing one — a blocking clarification item.** Run the **technical‑work guard** (classify user‑facing vs enabler). **Seed check (author mode):** the input must carry an identifiable intended capability/outcome to clarify; if it doesn't, stop with **Not ready — needs upstream ideation** (don't clarify a product into existence).
+1. **Determine mode** (author vs clarify) and state it. **Read the input and actually retrieve and read each linked source** (the orchestrator fetches; it passes the *content*, not just links, to the lenses); identify additional sources needed. **If a critical linked source can't be retrieved (no access, broken, paywalled), treat it like a missing one — a blocking clarification item.** Run the **technical‑work guard** (classify user‑facing vs enabler). **Seed check (author mode):** the input must carry an identifiable intended capability/outcome to clarify; if it doesn't, stop with **Not ready — needs upstream ideation** (don't clarify a product into existence).
 2. **Detect** against the checklist — check what's **missing** as much as what's present. Delegate the lenses (parallel) for a rich item; **apply their criteria inline for a small/clear one** (right‑size). Findings: gaps, ambiguity (>1 reading), missing NFRs, boundary blur, oversize, missing sources, conflicts — with candidate questions. **Then pool the lenses' findings into one criticality‑ranked agenda, collapsing questions that target the same decision into one.** This single agenda is what the clarify loop works from.
 3. **Clarify (human‑in‑the‑loop).** Ask **one business‑level question at a time, most critical first, until the agenda is empty** (use the IDE's native prompt if available; ask only what genuinely needs a human). **Defer technical questions.** You may draft on the fly. After each answer, **fold it back into the agenda — resolve the item, supersede what it changes, and add any new fork it opens — before picking the next** (re‑delegate a lens only if an answer materially reshapes a whole dimension; rare). **Keep a running answer ledger and apply the consistency guard per answer** (surface contradictions, record supersessions, escalate circularity).
 4. **Gate & capture.** Before producing the artifact, run the **whole‑spec consistency pass** (`consistency-reviewer`) over the assembled draft; resolve any contradiction it finds (loop back if needed).
-   - Checklist Met/Deferred/Out‑of‑scope **and consistency clean** → produce the artifact (author: the **user story**; clarify: the **Clarified Work‑Item Spec**) as a **draft pending approval**.
+   - Checklist Met/Deferred/Out‑of‑scope **and the `consistency-reviewer` passes (coherent & actionable)** → produce the artifact (author: the **user story**; clarify: the **Clarified Work‑Item Spec**) as a **draft pending approval**.
    - Otherwise → **Not ready**: an ordered, resumable clarification agenda; **no artifact**.
 
 ---
@@ -99,7 +100,7 @@ Readiness is **measured**, not guessed. Each item is **Met / Deferred / Open** �
 
 A predefined structure with **two roles**: in *author* mode it leads with the **story narrative** and **is** the work item; in *clarify* mode it **references** the external story and is the companion contract. It never copies the source.
 
-**Completeness by mode.** *author* writes a **complete, standalone** user story meeting user‑story rigor — every applicable section substantive. *clarify* writes **only what it resolves or changes**, references the story for what's already clear, and **omits or marks N/A rather than padding**. The checklist is fully assessed in both modes; artifact completeness ≠ checklist completeness. (The **calibration guard** sets the level: every load‑bearing concern, nothing more.)
+**Completeness by mode.** *author* writes a **complete, standalone** user story meeting user‑story rigor — every applicable section substantive. *clarify* writes **only what it resolves or changes**, references the story for what's already clear, and **omits or marks N/A rather than padding**. The checklist is fully assessed in both modes; artifact completeness ≠ checklist completeness. (The **calibration guard** sets the level: every critical concern, nothing more.)
 
 **Don't duplicate external sources — link them.** When an authoritative artifact already details something (UI/UX spec, ADR, API/data contract, policy), reference it under *Reference sources* and tag the item's origin to it, instead of copying its content into the story.
 
@@ -121,7 +122,7 @@ As a <persona>, I want <capability>, so that <outcome>.
 ## Acceptance criteria            (testable, business-level)
 ## Assumptions & dependencies     (assumed — confirm; depends on …)
 ## Success signals
-## Deferred to next phase          (technical clarifications, design, anything punted)
+## Deferred to next phase          (technical clarifications, design, anything punted; ⚠ value-impact note on any critical deferral)
 ## Sizing                          (fits ~a few days? if not → proposed split)
 
 ## Open / blocking  (only if Not ready)
@@ -135,7 +136,7 @@ As a <persona>, I want <capability>, so that <outcome>.
 
 ## Output states
 - **Captured** — checklist satisfied; downstream may proceed.
-- **Captured with deferrals** — produced with explicit *Deferred* / *assumed — confirm* items that don't block.
+- **Captured with deferrals** — produced with explicit *Deferred* / *assumed — confirm* items that don't block; a **⚠ value-impact note** flags any deferral that lowers the story's value.
 - **Not ready** — no artifact; a resumable, criticality‑ordered clarification agenda — or, if oversized, a **proposed split** (answer/choose + re‑run, or answer interactively).
 
 ## Contract semantics (downstream)
@@ -147,7 +148,7 @@ As a <persona>, I want <capability>, so that <outcome>.
 - **Enabler/technical item:** explicit flag → enabler mode. Unflagged‑but‑technical → guard surfaces it.
 - **Oversized:** never produce a final artifact; propose a split.
 - **Self‑contradiction / cross‑source conflict:** raise it; don't resolve silently.
-- **Sparse input:** clarify the load‑bearing gaps; mark safe inferences *assumed — confirm*; don't gold‑plate.
+- **Sparse input:** clarify the critical gaps; mark safe inferences *assumed — confirm*; don't gold‑plate.
 
 ---
 
@@ -159,7 +160,7 @@ As a <persona>, I want <capability>, so that <outcome>.
   - `nfr-experience-reviewer` — UX‑relevant NFRs that are missing or vague.
   - `scope-sizing-reviewer` — boundary blur (in/out), ~few‑days sizing/split, dependencies.
   - `fit-sources-reviewer` — end‑user/technical‑work guard + enabler, linked + missing sources, conflicts.
-- **Gate lens** (1 **sub‑agent**, read‑only) — `consistency-reviewer` fires once at the **gate**, over the **assembled draft** (not the input), checking the artifact for internal contradictions and supersession integrity before capture. (Per‑answer consistency during the loop stays in the orchestrator — it is stateful and may need to ask the human — so only the whole‑spec pass is delegated.)
+- **Gate lens** (1 **sub‑agent**, read‑only) — `consistency-reviewer` fires once at the **gate**, over the **assembled draft** (not the input), checking it for internal contradictions, supersession integrity, and **actionability** (behaviors↔ACs↔requirements trace; ACs testable) before capture. (Per‑answer consistency during the loop stays in the orchestrator — it is stateful and may need to ask the human — so only the whole‑spec pass is delegated.)
 - **Helpers** (2 **skills**, reused verbatim) — `clarification-checklist` (the measure) and `prepared-work-item-spec` (the output structure). *(Claude inlines these in the orchestrator/lenses; Copilot extracts them as Agent Skills.)*
 
 The interactive clarification protocol stays **in the orchestrator** (single, interactive driver — not a skill). Each **detect** guard lives in its lens; the **cross‑cutting** guards (seed, calibration, per‑answer consistency) are applied by the orchestrator — consistency also runs as the gate lens.

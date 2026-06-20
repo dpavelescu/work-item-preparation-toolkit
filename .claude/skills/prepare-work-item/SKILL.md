@@ -33,10 +33,10 @@ and **state which mode** is in effect.
 The detection + clarification engine below is identical; only the input and the captured artifact differ.
 
 ## Process (detect → clarify → gate)
-1. **Determine mode** and state it. **Read the input and actually retrieve each linked source**, passing their content to the lenses; identify additional sources needed. **A load-bearing source that can't be retrieved is blocking, like a missing one.** Run the **technical-work guard** (classify user-facing vs explicit enabler). **Seed check (author mode):** input must carry an identifiable intended capability/outcome to clarify; if not → **Not ready — needs upstream ideation** (don't clarify a product into existence).
+1. **Determine mode** and state it. **Read the input and actually retrieve each linked source**, passing their content to the lenses; identify additional sources needed. **A critical source that can't be retrieved is blocking, like a missing one.** Run the **technical-work guard** (classify user-facing vs explicit enabler). **Seed check (author mode):** input must carry an identifiable intended capability/outcome to clarify; if not → **Not ready — needs upstream ideation** (don't clarify a product into existence).
 2. **Detect** against the **checklist** — checking what's **missing** as much as what's present. Delegate the **lenses** (parallel) for a rich item; **apply their criteria inline** for a small/clear one (right-size). Collect gaps, ambiguities (>1 reading), missing NFRs, boundary blur, oversize, missing sources, conflicts — with candidate questions. **Then pool the lenses' findings into one criticality-ranked agenda, collapsing questions that target the same decision into one** — the clarify loop works from this single agenda.
-3. **Clarify (human-in-the-loop).** Ask the **single most critical** business-level question from the agenda (use the IDE's native prompt if it has one), wait, then **fold the answer back — resolve the item, supersede what it changes, add any new fork it opens — before picking the next**, **until the agenda is empty.** (Re-delegate a lens only if an answer materially reshapes a whole dimension; rare.) Ask only what genuinely needs a human. **Defer technical questions** to the next phase. You may draft on the fly. **Keep a running answer ledger and apply the consistency guard per answer** — surface contradictions, record supersessions explicitly, escalate circularity.
-4. **Gate & capture.** Before producing the artifact, run the **`consistency-reviewer`** over the assembled draft + ledger and resolve any contradiction it finds (loop back if needed). When the checklist is **Met / Deferred / Out-of-scope** **and consistency is clean** → produce the artifact (author: the **user story**; clarify: the **Clarified Work-Item Spec**) as a **draft pending approval**. Otherwise → **Not ready**: an ordered, resumable clarification agenda; **write no artifact**. Never partial; never substitute an assumption for a missing/unclear important concern.
+3. **Clarify (human-in-the-loop).** Ask the **single most critical** business-level question from the agenda (use the IDE's native prompt if it has one), wait, then **fold the answer back — resolve the item, supersede what it changes, add any new fork it opens — before picking the next**, **until the agenda is empty.** (Re-delegate a lens only if an answer materially reshapes a whole dimension; rare.) Ask only what genuinely needs a human. **Defer technical questions** to the next phase. You may draft on the fly. **Keep a running answer ledger and apply the consistency guard per answer** (check each answer vs prior answers **and the sources**) — surface contradictions, record supersessions explicitly, escalate circularity.
+4. **Gate & capture.** Before producing the artifact, run the **`consistency-reviewer`** over the assembled draft + ledger and resolve any contradiction it finds (loop back if needed). When the checklist is **Met / Deferred / Out-of-scope** **and the `consistency-reviewer` passes (coherent & actionable)** → produce the artifact (author: the **user story**; clarify: the **Clarified Work-Item Spec**) as a **draft pending approval**. Otherwise → **Not ready**: an ordered, resumable clarification agenda; **write no artifact**. Never partial; never substitute an assumption for a missing/unclear important concern.
 
 ## Clarification checklist (the measure)
 *Inlined copy — canonical source is the playbook (Checklist + Guards + Spec); if they disagree, the playbook wins.*
@@ -52,17 +52,17 @@ Each item is **Met / Deferred / Open** — the consistent measure of *what to cl
 | boundary blur (in/out), ~few-days sizing/split, dependencies | `scope-sizing-reviewer` |
 | end-user/technical-work guard + enabler, linked + missing sources, conflicts | `fit-sources-reviewer` |
 
-**Gate lens** (fires in step 4, over the **assembled draft**): `consistency-reviewer` — internal contradictions + supersession integrity before capture.
+**Gate lens** (fires in step 4, over the **assembled draft**): `consistency-reviewer` — internal contradictions, supersession integrity, and actionability (behaviors↔ACs↔requirements) before capture.
 
 Each lens is read-only, business-level, and defers technical detail. Pass each only its slice; detect lenses return findings + suggested questions, the gate lens returns contradictions.
 
 ## Guards
-Technical-work (+ enabler exception) · technical-deferral · scope-size (>~a few days → no artifact; propose split; each slice re-runs) · boundary (state in/out) · source (missing/unlinked/unretrievable load-bearing source → blocking) · conflict (raise self-contradiction / cross-source) · consistency (ledger per answer; whole-spec pass at the gate; internal consistency is a readiness condition) · seed (author: no capability/intent → Not ready, route upstream) · calibration (capture every load-bearing concern, nothing more — no over/under-specification). See the playbook.
+Technical-work (+ enabler exception) · technical-deferral · scope-size (>~a few days → no artifact; propose split; each slice re-runs) · boundary (state in/out) · source (missing/unlinked/unretrievable critical source → blocking) · conflict (within/between sources, input↔source, answer↔source — never resolve silently) · consistency (ledger per answer vs prior answers + sources; whole-spec coherence + actionability pass at the gate; a readiness condition) · seed (author: no capability/intent → Not ready, route upstream) · calibration (capture every critical concern, nothing more — no over/under-specification) · deferral (human may defer; minor → TBD/assumed; critical only by explicit decision; ⚠ value-impact note if it lowers value; else Not ready). See the playbook.
 
 ## Output (two roles; never copies the source)
 - **author** → the **user story** (it *is* the work item; a draft, pending approval). **Complete & standalone** — every applicable section substantive, meeting user-story rigor.
 - **clarify** → the **Clarified Work-Item Spec** (references the story; companion contract). **Only what it resolves or changes** — reference the story for what's already clear; **omit/mark N/A rather than pad**.
-- **Calibration (both):** capture every load-bearing clarification and point of view, and **nothing more** — no over-specification (padding/verbosity/restating the source) and no under-specification (dropping a concern). The checklist is fully assessed in both modes; artifact completeness ≠ checklist completeness.
+- **Calibration (both):** capture every critical clarification and point of view, and **nothing more** — no over-specification (padding/verbosity/restating the source) and no under-specification (dropping a concern). The checklist is fully assessed in both modes; artifact completeness ≠ checklist completeness.
 - **Link, don't duplicate:** when an authoritative artifact details something (UI/UX spec, ADR, API/data contract, policy), reference it under *Reference sources* and tag the item's origin to it — don't copy its content.
 
 ```markdown
@@ -81,7 +81,7 @@ As a <persona>, I want <capability>, so that <outcome>.
 ## Acceptance criteria (testable, business-level)
 ## Assumptions & dependencies   (assumed — confirm; depends on …)
 ## Success signals
-## Deferred to next phase   (technical clarifications, design, anything punted)
+## Deferred to next phase   (technical clarifications, design, anything punted; ⚠ value-impact note on any critical deferral)
 ## Sizing   (fits ~a few days? if not → proposed split)
 
 ## Open / blocking   (only if Not ready)

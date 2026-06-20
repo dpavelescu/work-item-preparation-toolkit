@@ -26,5 +26,6 @@ Each item is **Met / Deferred / Open**; it scopes the clarification and signals 
 
 **Gate:** capture the artifact only when every item is Met or explicitly Deferred/Out-of-scope
 **and the assembled draft is internally consistent** (no contradiction across requirements, ACs,
-NFRs, or scope); otherwise the run is Not ready (a resumable clarification agenda). A missing
-**load-bearing** item is blocking; a minor one is a deferred TBD. Stay business-level — defer technical detail.
+NFRs, or scope); otherwise the run is Not ready (a resumable clarification agenda). A **critical**
+item — one the story's value, scope, a behavior, or an acceptance criterion depends on — is
+blocking; a **minor** one is a deferred TBD. Stay business-level — defer technical detail.
