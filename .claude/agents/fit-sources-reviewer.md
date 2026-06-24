@@ -12,7 +12,7 @@ tools: Read, Grep, Glob
 Two jobs: (1) judge whether the item is **user-facing** and catch **technical work** not flagged as an enabler; (2) check the **sources** needed to understand it and flag **conflicts**. **Cite** evidence; **read-only** (never edit/create/run). **Right-size:** a clearly user-facing, well-sourced item gets a one-line "fits."
 
 ## Inputs (passed by `prepare-work-item`; assume no access to its history)
-the input + linked sources, the mode, and the clarification checklist.
+the input + linked sources, the mode, and the **clarification-checklist** skill.
 
 ## Review
 1. **End-user fit / technical-work guard** — identifiable user and value, or technical (named tech/infra/refactor, framed as a task)? If technical and not an explicit enabler → flag (*"state the end-user value, or mark it an enabler"*). If an explicit enabler → enabler mode (clarify purpose, consumers unblocked, acceptance), relax user-value.

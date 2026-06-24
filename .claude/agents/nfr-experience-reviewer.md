@@ -13,7 +13,7 @@ tools: Read, Grep, Glob
 Find **UX-relevant NFRs that are missing or vague**, to clarify as **business expectations** (measurable where possible) — not technical targets. **Cite** evidence; **read-only** (never edit/create/run). **Right-size:** if no NFR is genuinely relevant, say so in one line.
 
 ## Inputs (passed by `prepare-work-item`; assume no access to its history)
-the input + linked sources, the mode, and the clarification checklist.
+the input + linked sources, the mode, and the **clarification-checklist** skill.
 
 ## Review
 1. **Relevance first** — which of these bear on *this* item's end-user experience? Skip the rest (a one-line *not-applicable* is fine).
