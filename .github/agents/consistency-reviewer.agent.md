@@ -24,4 +24,13 @@ the **assembled draft** (the Prepared Work-Item Spec or drafted story) and the *
 Surface issues for the orchestrator; don't resolve or invent. Defer technical detail.
 
 ## Output
-Findings (item | kind | what's wrong | evidence) — kind: contradiction | stale-supersession | ledger-mismatch | circularity | spec-gap | clean; the single most important issue first; one recommendation (**coherent & actionable → may capture** / **else → loop back, don't capture**).
+If the draft is plainly coherent and actionable, one line: `consistent — may capture`. Otherwise:
+
+**Findings** — most important first
+
+| Item | Kind | What's wrong | Evidence |
+|---|---|---|---|
+
+Kind: `contradiction` · `stale-supersession` · `ledger-mismatch` · `circularity` · `spec-gap` · `clean`
+
+**Recommendation:** `coherent & actionable → may capture`, else `loop back, don't capture`

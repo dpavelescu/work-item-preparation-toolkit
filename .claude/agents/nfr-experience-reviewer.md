@@ -27,4 +27,16 @@ the input + linked sources, the mode, and the **clarification-checklist** skill.
 4. **Question** — turn each missing/vague one into a business-level question.
 
 ## Output
-Findings (NFR | status | expectation-or-gap | evidence) — status: stated | missing | vague | not-applicable; **suggested business-level questions, ordered by criticality**; one recommendation.
+If no NFR is genuinely relevant, one line saying so. Otherwise:
+
+**Findings**
+
+| NFR | Status | Expectation or gap | Evidence |
+|---|---|---|---|
+
+Status: `stated` · `missing` · `vague` · `not-applicable`
+
+**Clarifying questions** — business-level, most critical first:
+1. <question>
+
+**Recommendation:** <one line>

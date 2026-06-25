@@ -18,4 +18,20 @@ the input + linked sources, the mode, and the **clarification-checklist** skill.
 3. **Dependencies** — business-level deps on other teams/items/decisions that affect scope.
 
 ## Output
-Findings (area | status | finding | evidence) — status: bounded | blurry | oversize | dependency; proposed in/out scope; proposed split (if oversize); **suggested business-level questions, ordered by criticality**; one recommendation.
+If well-bounded and right-sized, one line: `bounded, fits`. Otherwise:
+
+**Findings**
+
+| Area | Status | Finding | Evidence |
+|---|---|---|---|
+
+Status: `bounded` · `blurry` · `oversize` · `dependency`
+
+**Proposed scope** (if blurry) — In: … · Out: … (stated, never inferred)
+
+**Proposed split** (if oversize) — independently valuable slices; each re-enters prepare-work-item.
+
+**Clarifying questions** — business-level, most critical first:
+1. <question>
+
+**Recommendation:** <one line>

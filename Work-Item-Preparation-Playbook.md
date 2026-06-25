@@ -106,28 +106,51 @@ A predefined structure with **two roles**: in *author* mode it leads with the **
 
 ```markdown
 # <work-item title>
-Mode: author | clarify    Status: Captured | Captured with deferrals | Not ready
-Work type: User-facing | Enabler    Checklist: <n>/11    Source of truth: <this (draft) | link to story>
+Mode: author | clarify   ·   Status: Captured | Captured with deferrals | Not ready
+Work type: User-facing | Enabler   ·   Checklist: <n>/11   ·   Source of truth: <this (draft) | link to story>
 
-## Story            (author mode — the narrative)
+## Story
+*(author mode — the narrative)*
 As a <persona>, I want <capability>, so that <outcome>.
 
-## Reference sources  (read these — pointers, not copied)
-- <linked source (UI/UX spec, ADR, API/data contract, policy …)> — why relevant   · Needed but missing: <source> — what it resolves
+## Reference sources
+*(pointers, not copied)*
+- Linked: <source (UI/UX spec, ADR, API/data contract, policy …)> — why relevant
+- Needed but missing: <source> — what it resolves
 
 ## User & value
-## Functional requirements        (Given/When/Then; + alternate/error paths)   · source/answer tag
-## Non-functional requirements (UX) | NFR | Expectation | How we'd know | Source |
-## Scope                          - In scope: …   - Out of scope: …  (stated, not inferred)
-## Acceptance criteria            (testable, business-level)
-## Assumptions & dependencies     (assumed — confirm; depends on …)
-## Success signals
-## Deferred to next phase          (technical clarifications, design, anything punted; ⚠ value-impact note on any critical deferral)
-## Sizing                          (fits ~a few days? if not → proposed split)
 
-## Open / blocking  (only if Not ready)
-- Clarification agenda (most critical first): 1) <question> — why it blocks · who decides
-- Proposed split (if oversized): 1) <slice — independently valuable> … — pick slice(s); each re-enters prepare-work-item as its own item
+## Functional requirements
+*(Given/When/Then; include alternate and error paths; tag each item with its origin)*
+
+## Non-functional requirements (UX)
+| NFR | Expectation | How we'd know | Source |
+|---|---|---|---|
+
+## Scope
+- In scope: …
+- Out of scope: …   *(stated explicitly, never inferred)*
+
+## Acceptance criteria
+*(testable, business-level)*
+
+## Assumptions & dependencies
+*(assumed — confirm; depends on …)*
+
+## Success signals
+
+## Deferred to next phase
+*(technical clarifications, design, anything punted; ⚠ value-impact note on any critical deferral)*
+
+## Sizing
+*(fits ~a few days? if not → proposed split)*
+
+## Open / blocking
+*(only when Not ready — no artifact is produced)*
+- Clarification agenda (most critical first):
+  1. <question> — why it blocks · who decides
+- Proposed split (if oversized):
+  1. <slice — independently valuable> — each re-enters prepare-work-item as its own item
 ```
 
 **Traceability:** each functional/NFR/AC item is tagged with its origin — a requirement, a story section, an **external artifact** (UI/UX spec, ADR, API/data contract, policy), or the **human answer** that resolved it (or *assumed — confirm*) — so downstream knows what's authoritative vs clarified vs assumed.

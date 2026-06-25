@@ -21,4 +21,16 @@ the input + linked sources, the mode, and the **clarification-checklist** skill.
 5. **Technical** — flag *defer to planning*; don't resolve here.
 
 ## Output
-Findings (area | status | finding | evidence) — status: clear | gap | ambiguous | defer-technical; **suggested business-level questions, ordered by criticality**; one recommendation.
+If the item is small and clear, one line: `clear — <why>`. Otherwise:
+
+**Findings**
+
+| Area | Status | Finding | Evidence |
+|---|---|---|---|
+
+Status: `clear` · `gap` · `ambiguous` · `defer-technical`
+
+**Clarifying questions** — business-level, most critical first:
+1. <question>
+
+**Recommendation:** <one line>

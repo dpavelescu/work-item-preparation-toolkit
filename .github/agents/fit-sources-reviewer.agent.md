@@ -19,4 +19,18 @@ the input + linked sources, the mode, and the **clarification-checklist** skill.
 3. **Conflicts** — any contradiction within the input or a source, **between two sources**, or input vs a source? Raise it; don't resolve silently.
 
 ## Output
-Findings (area | status | finding | evidence) — status: user-facing | technical-unflagged | enabler | sources-ok | missing-source | conflict; the reading set (linked + needed); **suggested business-level questions, ordered by criticality**; one recommendation.
+If clearly user-facing and well-sourced, one line: `fits`. Otherwise:
+
+**Findings**
+
+| Area | Status | Finding | Evidence |
+|---|---|---|---|
+
+Status: `user-facing` · `technical-unflagged` · `enabler` · `sources-ok` · `missing-source` · `conflict`
+
+**Reading set** — Linked: … · Needed but missing: … (critical = blocking)
+
+**Clarifying questions** — business-level, most critical first:
+1. <question>
+
+**Recommendation:** <one line>
