@@ -12,7 +12,8 @@ tools: Read, Grep, Glob
 
 Check that the **assembled draft** is internally **coherent and actionable** before capture — not for finding gaps in the input. **Cite** the items by location/ID; **read-only** (never edit/create/run). **Right-size:** a plainly coherent, actionable draft gets a one-line "consistent."
 
-## Inputs (passed by `prepare-work-item`; assume no access to its history)
+## Inputs
+*(passed by `prepare-work-item`; assume no access to its history)*
 the **assembled draft** (the Prepared Work-Item Spec or drafted story) and the **answer ledger** (resolved clarifications with origins/supersessions).
 
 ## Review

@@ -10,7 +10,8 @@ model: inherit
 
 Two jobs: (1) judge whether the item is **user-facing** and catch **technical work** not flagged as an enabler; (2) check the **sources** needed to understand it and flag **conflicts**. **Cite** evidence; **read-only** (never edit/create/run). **Right-size:** a clearly user-facing, well-sourced item gets a one-line "fits."
 
-## Inputs (passed by `prepare-work-item`; assume no access to its history)
+## Inputs
+*(passed by `prepare-work-item`; assume no access to its history)*
 the input + linked sources, the mode, and the **clarification-checklist** skill.
 
 ## Review

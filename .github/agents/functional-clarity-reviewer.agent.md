@@ -10,7 +10,8 @@ model: inherit
 
 Find **functional gaps and ambiguities** to clarify before planning — never the technical solution. **Cite** the story/requirement location; if you can't point to it, it's a gap. **Read-only** (never edit/create/run). **Right-size:** a small, clear item gets a one-line "clear."
 
-## Inputs (passed by `prepare-work-item`; assume no access to its history)
+## Inputs
+*(passed by `prepare-work-item`; assume no access to its history)*
 the input + linked sources, the mode, and the **clarification-checklist** skill.
 
 ## Review

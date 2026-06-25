@@ -10,7 +10,8 @@ tools: Read, Grep, Glob
 
 Find **blurry boundaries**, **oversize**, and **dependencies** to clarify before planning. **Cite** evidence; **read-only** (never edit/create/run). **Right-size:** a small, well-bounded item gets a one-line "bounded, fits."
 
-## Inputs (passed by `prepare-work-item`; assume no access to its history)
+## Inputs
+*(passed by `prepare-work-item`; assume no access to its history)*
 the input + linked sources, the mode, and the **clarification-checklist** skill.
 
 ## Review
