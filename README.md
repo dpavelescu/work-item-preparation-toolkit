@@ -66,6 +66,7 @@ Work-Item-Preparation-Playbook.md          ← the full reference (tool-neutral)
 
 .claude/                                    ← Claude Code build
   skills/   prepare-work-item               (orchestrator = skill)
+            clarification-checklist | prepared-work-item-spec   (shared helpers)
   agents/   functional-clarity-reviewer | nfr-experience-reviewer
             scope-sizing-reviewer | fit-sources-reviewer   (4 detect lenses)
             consistency-reviewer            (gate lens)     (lenses = sub-agents)
@@ -73,10 +74,10 @@ Work-Item-Preparation-Playbook.md          ← the full reference (tool-neutral)
 .github/                                    ← GitHub Copilot build
   agents/   prepare-work-item               (orchestrator = custom agent; delegates via agents:)
             + the 5 lenses                  (4 detect + 1 gate; lenses = custom agents)
-  skills/   clarification-checklist | prepared-work-item-spec   (shared, auto-loaded)
+  skills/   clarification-checklist | prepared-work-item-spec   (shared helpers)
 ```
 
-> Same responsibilities and boundaries in both; only the packaging differs (Claude Code: skill + sub-agents; Copilot: custom agents + Agent Skills). Pick one build.
+> Same responsibilities and boundaries in both; only the packaging differs (Claude Code: skills + sub-agents; Copilot: custom agents + Agent Skills). Both builds extract the two helper skills (kept byte-identical); the orchestrator and lenses differ only by harness. Pick one build.
 
 ---
 
