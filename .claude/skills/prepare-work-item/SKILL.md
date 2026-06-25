@@ -50,9 +50,45 @@ The detect → clarify → gate engine is identical across modes; only the input
    - Fold the answer back into the agenda — resolve the item, supersede what it changes, add any new fork it opens — before picking the next; continue until the agenda is empty.
    - Apply the consistency guard per answer: check each answer against prior answers and the sources; surface contradictions, record supersessions explicitly, escalate circularity.
    - You may draft on the fly. Re-delegate a lens only if an answer materially reshapes a whole dimension (rare).
-4. **Gate & capture.**
+4. **Gate & capture.** Resolve to exactly one terminal state, then emit its template from Output.
    - Run the `consistency-reviewer` over the assembled draft + ledger; resolve any contradiction it finds (loop back if needed).
-   - If the item exceeds ~a few days, write no artifact — propose a split into independently valuable slices, each of which re-enters prepare-work-item.
-   - When the checklist is Met / Deferred / Out-of-scope and the `consistency-reviewer` passes (coherent & actionable) → capture the artifact via the **prepared-work-item-spec** skill (author: the user story; clarify: the Clarified Work-Item Spec), as a draft pending approval.
-   - A human may defer an item: minor → TBD / assumed; a critical one only by explicit decision, with a ⚠ value-impact note if it lowers value — otherwise **Not ready**.
-   - Otherwise → **Not ready**: emit an ordered, resumable clarification agenda; write no artifact. Never partial; never substitute an assumption for a missing or unclear critical concern.
+   - Checklist Met / Deferred / Out-of-scope **and** `consistency-reviewer` passes (coherent & actionable) → **Captured** (or **Captured with deferrals**): capture via the **prepared-work-item-spec** skill, as a draft pending approval.
+   - Item exceeds ~a few days → **Not ready — oversized**: no artifact; propose a split.
+   - Author mode, input carries no identifiable capability/outcome → **Not ready — needs upstream ideation**.
+   - A blocking question remains → **Not ready — clarification needed**: no artifact. A human may defer — minor → TBD / *assumed — confirm*; a critical one only by explicit decision, with a ⚠ value-impact note if it lowers value.
+   - Never partial; never substitute an assumption for a missing or unclear critical concern.
+
+## Output
+Every run ends in exactly one state. Emit that state's template; don't freestyle the shape.
+
+**Captured** / **Captured with deferrals** — produce the artifact via the **prepared-work-item-spec** skill and set its `Status`. Use *Captured with deferrals* when a non-blocking *Deferred* or *assumed — confirm* item remains; add a ⚠ value-impact note to each critical deferral.
+
+**Not ready — clarification needed** — no artifact:
+```markdown
+# <title> — Not ready: clarification needed
+Mode: <author | clarify>   ·   Checklist: <n>/11
+
+## Clarification agenda (most critical first)
+1. <question> — why it blocks · who decides
+2. …
+
+## Resolved so far
+- <decision> — origin    (omit this section if nothing is resolved yet)
+```
+
+**Not ready — oversized** — no artifact:
+```markdown
+# <title> — Not ready: oversized
+Reason: exceeds ~a few days
+
+## Proposed split (each slice independently valuable; each re-enters prepare-work-item)
+1. <slice> — value · rough boundary
+2. …
+```
+
+**Not ready — needs upstream ideation** — author mode, no identifiable capability/outcome; no artifact:
+```markdown
+# Not ready — needs upstream ideation
+Missing: <the capability or outcome that must exist before clarification can start>
+Next step: <route upstream — who decides / what's needed>
+```

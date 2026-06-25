@@ -106,7 +106,7 @@ A predefined structure with **two roles**: in *author* mode it leads with the **
 
 ```markdown
 # <work-item title>
-Mode: author | clarify   ·   Status: Captured | Captured with deferrals | Not ready
+Mode: author | clarify   ·   Status: Captured | Captured with deferrals
 Work type: User-facing | Enabler   ·   Checklist: <n>/11   ·   Source of truth: <this (draft) | link to story>
 
 ## Story
@@ -143,15 +143,10 @@ As a <persona>, I want <capability>, so that <outcome>.
 *(technical clarifications, design, anything punted; ⚠ value-impact note on any critical deferral)*
 
 ## Sizing
-*(fits ~a few days? if not → proposed split)*
-
-## Open / blocking
-*(only when Not ready — no artifact is produced)*
-- Clarification agenda (most critical first):
-  1. <question> — why it blocks · who decides
-- Proposed split (if oversized):
-  1. <slice — independently valuable> — each re-enters prepare-work-item as its own item
+*(confirm it fits ~a few days)*
 ```
+
+*(Not-ready outcomes — clarification agenda, oversized split, needs upstream ideation — produce no artifact; the orchestrator emits those templates, not this artifact.)*
 
 **Traceability:** each functional/NFR/AC item is tagged with its origin — a requirement, a story section, an **external artifact** (UI/UX spec, ADR, API/data contract, policy), or the **human answer** that resolved it (or *assumed — confirm*) — so downstream knows what's authoritative vs clarified vs assumed.
 
@@ -160,7 +155,7 @@ As a <persona>, I want <capability>, so that <outcome>.
 ## Output states
 - **Captured** — checklist satisfied; downstream may proceed.
 - **Captured with deferrals** — produced with explicit *Deferred* / *assumed — confirm* items that don't block; a **⚠ value-impact note** flags any deferral that lowers the story's value.
-- **Not ready** — no artifact; a resumable, criticality‑ordered clarification agenda — or, if oversized, a **proposed split** (answer/choose + re‑run, or answer interactively).
+- **Not ready** — no artifact. One of: a resumable, criticality‑ordered **clarification agenda**; a **proposed split** if oversized; or **needs upstream ideation** if the input carries no capability/outcome to clarify. Each is a distinct template the orchestrator emits (answer/choose + re‑run, or answer interactively).
 
 ## Contract semantics (downstream)
 - Planning/implementation **build to the artifact**: honor scope (esp. *out of scope*), satisfy the acceptance criteria, meet the NFR expectations, and **resolve the *Deferred* items in their phase**.
@@ -184,6 +179,6 @@ As a <persona>, I want <capability>, so that <outcome>.
   - `scope-sizing-reviewer` — boundary blur (in/out), ~few‑days sizing/split, dependencies.
   - `fit-sources-reviewer` — end‑user/technical‑work guard + enabler, linked + missing sources, conflicts.
 - **Gate lens** (1 **sub‑agent**, read‑only) — `consistency-reviewer` fires once at the **gate**, over the **assembled draft** (not the input), checking it for internal contradictions, supersession integrity, and **actionability** (behaviors↔ACs↔requirements trace; ACs testable) before capture. (Per‑answer consistency during the loop stays in the orchestrator — it is stateful and may need to ask the human — so only the whole‑spec pass is delegated.)
-- **Helpers** (2 **skills**, reused verbatim) — `clarification-checklist` (the measure) and `prepared-work-item-spec` (the output structure). *(Claude inlines these in the orchestrator/lenses; Copilot extracts them as Agent Skills.)*
+- **Helpers** (2 **skills**, reused verbatim) — `clarification-checklist` (the measure) and `prepared-work-item-spec` (the captured-artifact structure). *(Both builds extract these as skills the orchestrator and lenses reference; the copies are kept byte‑identical.)*
 
 The interactive clarification protocol stays **in the orchestrator** (single, interactive driver — not a skill). Each **detect** guard lives in its lens; the **cross‑cutting** guards (seed, calibration, per‑answer consistency) are applied by the orchestrator — consistency also runs as the gate lens.

@@ -24,7 +24,7 @@ checklist completeness.
 
 ```markdown
 # <work-item title>
-Mode: author | clarify   ·   Status: Captured | Captured with deferrals | Not ready
+Mode: author | clarify   ·   Status: Captured | Captured with deferrals
 Work type: User-facing | Enabler   ·   Checklist: <n>/11   ·   Source of truth: <this (draft) | link to story>
 
 ## Story
@@ -61,15 +61,10 @@ As a <persona>, I want <capability>, so that <outcome>.
 *(technical clarifications, design, anything punted; ⚠ value-impact note on any critical deferral)*
 
 ## Sizing
-*(fits ~a few days? if not → proposed split)*
-
-## Open / blocking
-*(only when Not ready — no artifact is produced)*
-- Clarification agenda (most critical first):
-  1. <question> — why it blocks · who decides
-- Proposed split (if oversized):
-  1. <slice — independently valuable> — each re-enters prepare-work-item as its own item
+*(confirm it fits ~a few days)*
 ```
+
+*(Not-ready outcomes — clarification agenda, oversized split, needs upstream ideation — produce no artifact; the orchestrator emits those templates, not this skill.)*
 
 **Rules:** the output is a **draft pending human approval**. Tag each functional/NFR/AC item with
 its **origin** — a requirement, a story section, an **external artifact** (UI/UX spec, ADR,
