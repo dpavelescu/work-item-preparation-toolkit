@@ -14,7 +14,7 @@ Each item is **Met / Deferred / Open**; it scopes the clarification and signals 
 
 1. **User & value** — persona(s) and the outcome are explicit.
 2. **Functional behavior** — observable behaviors as scenarios (happy path + meaningful alternates + user-visible error/edge cases).
-3. **Non-functional (UX-relevant)** — only NFRs that affect the end-user experience, each a *business expectation* (measurable where possible): responsiveness/perceived performance, availability-as-felt, accessibility, localization, privacy & data handling/consent, security-as-felt, compliance, auditability.
+3. **Non-functional (UX-relevant)** — only NFRs that affect the end-user experience, each a *business expectation* (measurable where possible): responsiveness/perceived performance, availability-as-felt, accessibility, localization, privacy & data handling/consent, security-as-felt, compliance, auditability. This list is a baseline, not a ceiling — also surface any UX-relevant NFR specific to the item or domain even if it isn't listed.
 4. **Scope boundaries** — explicit in-scope and out-of-scope (out-of-scope stated, never inferred).
 5. **Acceptance criteria** — testable, business-level (Given/When/Then).
 6. **Assumptions & dependencies** — business-level, named (incl. cross-team/other-item deps).

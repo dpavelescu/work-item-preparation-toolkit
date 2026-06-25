@@ -21,6 +21,7 @@ the input + linked sources, the mode, and the **clarification-checklist** skill.
    - accessibility · localization / i18n
    - privacy & data handling / consent · security-as-felt
    - compliance · auditability (where user-relevant)
+   - This list is a **baseline, not a ceiling** — also surface any UX-relevant NFR specific to this item or domain even if it isn't listed; keep additions concrete.
 2. **Stated, missing, or vague?** — for each relevant one; cite where stated, else it's missing.
 3. **Frame as a business expectation** (measurable where possible); defer any technical target to planning.
 4. **Question** — turn each missing/vague one into a business-level question.
